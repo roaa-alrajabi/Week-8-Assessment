@@ -36,15 +36,32 @@ var object2={
 */
 
 //1) WRITE YOUR CODE UNDER THIS LINE         
-
+  let sum=(x,y)=>{x+y}
+  console.log(sum)
 //2) WRITE YOUR CODE UNDER THIS LINE         
-
+let consoleReturn=(x,y)=>{
+  console.log(x)
+   console.log(y)
+}
 //3) WRITE YOUR CODE UNDER THIS LINE         
+let name ="Alex"
+let age =25
+`My name is: ${name} and my age is:${age}`
+
 
 //4) WRITE YOUR CODE UNDER THIS LINE         
-
+ let food ="Fried Chicken"
+ let color ="Blue"
+ let object ={
+   food,
+   color
+ }
 //5) WRITE YOUR CODE UNDER THIS LINE         
-
+   let object2 ={
+     multi=(a,b)=>{
+       a*b
+     }
+   }
 
 
 
@@ -74,10 +91,21 @@ Output =>
 
 // WRITE YOUR CODE UNDER THIS LINE
 
-
-
-
-
+class Computer{
+    consturctor(){
+      OS=OS,
+      RAM=RAM,
+      CPU=CPU,
+      doubleRAM=(RAM)=>{
+       RAM*2
+      }
+    }
+}
+let computer1= new Computer("Windows",16,I7)
+let computer2 =new Computer("Linux",8,I5)
+let computer3= new computer("Mac",4,I3)
+ 
+console.log(computer3.doubleRAM(13))
 
 
 /* Q3:
@@ -100,7 +128,7 @@ export default class App extends Component {
     return (
       <h1>App Component => state.title</h1>
       <button onClick={this.changeTitle}>Change Title</button>
-      <Tasks tasks={this.todos} changeTitleFromChild={this.changeTitle} />
+      <Tasks tasks={this.state.todos} changeTitleFromChild={this.changeTitle}/>
     );
   }
 }
@@ -108,20 +136,22 @@ export default class App extends Component {
 // Tasks Component
 import React, { Component } from 'react';
 
-class Tasks extends Component {
+export default class Tasks extends Component {
   state = {
     day: "Sat"
   };
   changeDay() {
-    day = 'Sun'
+    this.setState({day="sun"})
+    // day = 'Sun'
   }
 
   render() {
+    const {changeTitleFromChild,tasks}= this.props
     return (
       <div>
         <h1>Tasks Component => state.day</h1>
         <button onClick={this.changeDay}>Change Tasks State</button>
-        <button onClick={changeTitle}>Change App State</button>
+        <button onClick={this.changeTitleFromChild.bind(this)}>Change App State</button>
       </div>
     );
   }
